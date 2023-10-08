@@ -12,6 +12,15 @@ window.addEventListener('load', () =>{
             return;
         } 
 
+
+    })
+
+
+    function loadTasks(){
+        const tasks=JSON.parse(localStorage.getItem ("tasks") || "[]");
+        tasks.forEach(task => addTask(task));
+    }
+    function addTask(){
         const task_el=document.createElement("div");
         task_el.classList.add("task");//giving it a class
 
@@ -20,9 +29,6 @@ window.addEventListener('load', () =>{
         task_content_el.innerText=task;
 
         task_el.appendChild(task_content_el);
-
-        con
-
         list_el.appendChild(task_el);
-    })
+    }
 })
